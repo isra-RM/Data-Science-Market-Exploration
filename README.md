@@ -1,4 +1,4 @@
-update content
+
 # Introduction
 This is an simple analysis of the data job market 📊 from the Luke Barousse SQL course. Focusing on data science jobs, this project explores top-paying jobs 💸, in-demand skills 📈 and where high salary meets high demand 🔥.
 
