@@ -3,18 +3,18 @@
 WITH top_paying_jobs AS 
 (
     SELECT
-        job_id,
+        job_id, 
         job_title,
-        salary_year_avg,
-        job_posted_date,
-        name AS company_name
+        name AS company_name,
+        job_location,
+        ROUND(salary_year_avg,0) AS salary_year_avg
     FROM 
         job_postings_fact
     LEFT JOIN 
         company_dim ON company_dim.company_id = job_postings_fact.company_id
     WHERE 
         job_title_short = 'Data Scientist'
-        AND job_location='Anywhere'
+        AND job_location IS NOT NULL
         AND salary_year_avg IS NOT NULL
     ORDER BY salary_year_avg DESC
     LIMIT 10    
@@ -22,10 +22,9 @@ WITH top_paying_jobs AS
 
 SELECT
     job_title,
+    skills,
     salary_year_avg,
-    job_posted_date,
-    company_name,
-    skills
+    company_name
 FROM 
     top_paying_jobs
 INNER JOIN 

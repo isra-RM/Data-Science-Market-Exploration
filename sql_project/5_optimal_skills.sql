@@ -3,7 +3,6 @@ To combine the demand for a job and the pay for that job into a single quantity,
 
 
 SELECT
-    skills_dim.skill_id,
     skills_dim.skills,
     COUNT(skills_dim.skills) AS demand,
     ROUND(AVG(job_postings_fact.salary_year_avg),0) AS avg_salary,
